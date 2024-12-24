@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task01</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: url('d79d6de9bd2e5e0f5a683aa7ff5f8ee9.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        img {
+            position: absolute;
+            width: 100px; 
+            height: auto;
+            pointer-events: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <img src="images.jpg" id="animal" alt="Животное">
+    <script>
+        $(document).mousemove(function(event) {
+            const $animal = $('#animal');
+            const animalWidth = $animal.width();
+            const animalHeight = $animal.height();
+            let x = event.pageX - animalWidth / 2;
+            let y = event.pageY - animalHeight / 2;
+            $animal.css({
+                left: x + 'px',
+                top: y + 'px'
+            });
+        });
+    </script>
+</body>
+</html>

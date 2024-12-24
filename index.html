@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task04</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .stars {
+            display: flex;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .star {
+            font-size: 30px;
+            color: black;
+            transition: color 0.2s ease;
+        }
+
+        .star.active {
+            color: orange;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="rating-container">
+        <span>Star Rating:</span>
+        <div class="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.star').click(function() {
+                const rating = $(this).data('value');
+                $('.star').each(function() {
+                    if ($(this).data('value') <= rating) {
+                        $(this).addClass('active');
+                    } else {
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
